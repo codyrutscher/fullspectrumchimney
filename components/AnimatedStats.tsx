@@ -98,13 +98,15 @@ export default function AnimatedStats() {
           <motion.div
             key={i}
             className="absolute w-1 h-1 bg-orange-500 rounded-full"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+            }}
             initial={{ 
-              x: Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1000),
-              y: Math.random() * 800,
               opacity: Math.random()
             }}
             animate={{
-              y: [null, Math.random() * -200],
+              y: [0, Math.random() * -200],
               opacity: [null, 0],
             }}
             transition={{
@@ -154,7 +156,7 @@ export default function AnimatedStats() {
         <div className="relative h-[600px] md:h-[700px]">
           {stats.map((stat, index) => {
             const angle = (index * 90 - 45) * (Math.PI / 180);
-            const radius = typeof window !== 'undefined' && window.innerWidth < 768 ? 180 : 280;
+            const radius = 280;
             const x = Math.cos(angle) * radius;
             const y = Math.sin(angle) * radius;
 
@@ -198,7 +200,10 @@ export default function AnimatedStats() {
                     }}
                     className="relative mb-3"
                   >
-                    <stat.icon className="w-12 h-12 text-white" />
+                    {(() => {
+                      const Icon = stat.icon;
+                      return <Icon className="w-12 h-12 text-white" />;
+                    })()}
                   </motion.div>
 
                   {/* Number */}

@@ -166,7 +166,10 @@ export default function WhyChooseUs() {
                       transition={{ duration: 0.5 }}
                       className="relative bg-gradient-to-br from-orange-600 to-red-600 w-20 h-20 rounded-2xl flex items-center justify-center"
                     >
-                      <feature.icon className="w-10 h-10 text-white" />
+                      {(() => {
+                        const Icon = feature.icon;
+                        return <Icon className="w-10 h-10 text-white" />;
+                      })()}
                     </motion.div>
                   </div>
 
