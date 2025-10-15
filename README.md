@@ -1,36 +1,194 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Elite Chimney Services - Next.js Website
+
+A modern, feature-rich chimney services website built with Next.js 14, TypeScript, Tailwind CSS, and Framer Motion.
+
+## Features
+
+✅ **Responsive Design** - Mobile-first, fully responsive across all devices
+✅ **Smooth Animations** - Framer Motion animations and 3D effects
+✅ **Floating Widget** - Call, Text, and Chat functionality
+✅ **Social Media Feed** - Instagram & Facebook integration ready
+✅ **Booking System** - Online appointment scheduling
+✅ **Contact Forms** - Customizable contact forms
+✅ **Reviews Section** - Connected to Google Business Profile
+✅ **GBP Posts** - Latest updates and news section
+✅ **CTAs Everywhere** - Call-to-action on every section
+✅ **5+ Pages** - Home, About, Services (with sub-pages), Gallery, Contact, Booking
+✅ **Dynamic Interactions** - Hover effects, scroll animations, transitions
+
+## Pages Structure
+
+```
+/                    - Home (Hero, Services, Why Choose Us, Reviews, GBP Posts, Social Feed)
+/about              - About Us
+/services/cleaning  - Chimney Cleaning
+/services/inspection - Chimney Inspection
+/services/repair    - Chimney Repair
+/services/installation - Chimney Installation
+/services/fireplace - Fireplace Services
+/gallery            - Work Gallery
+/contact            - Contact Form
+/booking            - Appointment Scheduling
+```
+
+## Tech Stack
+
+- **Framework**: Next.js 14 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **Animations**: Framer Motion
+- **3D Graphics**: React Three Fiber & Drei
+- **Icons**: Lucide React
+- **Carousel**: Embla Carousel
 
 ## Getting Started
 
-First, run the development server:
+### Installation
+
+```bash
+cd chimney-services
+npm install
+```
+
+### Development
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Build for Production
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+## Customization Guide
 
-To learn more about Next.js, take a look at the following resources:
+### 1. Update Contact Information
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Edit the following files:
+- `components/Footer.tsx` - Footer contact info
+- `components/Navbar.tsx` - Navigation
+- `app/contact/page.tsx` - Contact page details
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 2. Connect Social Media Feed
 
-## Deploy on Vercel
+To connect real social media feeds:
+- Instagram: Use Instagram Basic Display API
+- Facebook: Use Facebook Graph API
+- Update `components/home/SocialFeed.tsx`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 3. Connect Google Business Profile
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+For reviews and posts:
+- Use Google My Business API
+- Update `components/home/ReviewsSection.tsx`
+- Update `components/home/GBPPostsSection.tsx`
+
+### 4. Add Chat Bot
+
+Replace the chat widget in `components/FloatingWidget.tsx` with:
+- Intercom
+- Drift
+- Tawk.to
+- WhatsApp Business API
+
+### 5. Booking System Integration
+
+Connect to a real booking system:
+- Calendly
+- Acuity Scheduling
+- Custom backend API
+- Update `app/booking/page.tsx`
+
+### 6. Update Images
+
+Replace placeholder images with real photos:
+- Use high-quality images (1920x1080 recommended)
+- Optimize images with Next.js Image component
+- Update image URLs throughout the site
+
+### 7. SEO Optimization
+
+Update metadata in each page:
+```typescript
+export const metadata: Metadata = {
+  title: "Your Title",
+  description: "Your Description",
+};
+```
+
+### 8. Color Scheme
+
+Customize colors in `app/globals.css`:
+```css
+:root {
+  --primary: 14 100% 57%; /* Orange */
+  /* Add your brand colors */
+}
+```
+
+## Features to Implement
+
+### Social Media Integration
+```bash
+npm install react-instagram-embed react-facebook
+```
+
+### WhatsApp Integration
+Update `components/FloatingWidget.tsx`:
+```typescript
+onClick={() => window.open('https://wa.me/1234567890', '_blank')}
+```
+
+### Analytics
+```bash
+npm install @vercel/analytics
+```
+
+### Form Handling
+```bash
+npm install react-hook-form zod
+```
+
+## Deployment
+
+### Vercel (Recommended)
+```bash
+npm install -g vercel
+vercel
+```
+
+### Other Platforms
+- Netlify
+- AWS Amplify
+- Digital Ocean
+
+## Performance Optimizations
+
+- ✅ Image optimization with Next.js Image
+- ✅ Code splitting with dynamic imports
+- ✅ Lazy loading for animations
+- ✅ Optimized fonts with next/font
+
+## Browser Support
+
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
+
+## License
+
+MIT License - feel free to use for your projects!
+
+## Support
+
+For questions or issues, please open an issue on GitHub.
+
+---
+
+Built with ❤️ using Next.js
